@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Country;
+use app\models\State;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -124,5 +126,28 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionForm()
+    {
+        $countries = Country::find()->all();
+
+        return $this->render('form', ['countries' => $countries]);
+    }
+
+    public function actionGetStates($country_id)
+    {
+        $country = Country::find()->where(['id' => $country_id])->one();
+        $states = $country->states;
+
+        return $this->asJson($states);
+    }
+
+    public function actionGetCities($state_id)
+    {
+        $state = State::find()->where(['id' => $state_id])->one();
+        $cities = $state->cities;
+
+        return $this->asJson($cities);
     }
 }
