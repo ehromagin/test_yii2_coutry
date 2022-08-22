@@ -28,18 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="form-group">
             <label for="state">State</label>
             <select class="form-control" id="state">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="city">City</label>
             <select class="form-control" id="city">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
             </select>
         </div>
 
